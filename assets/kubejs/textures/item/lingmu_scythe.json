@@ -1,0 +1,45 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"particle": "kubejs:item/lingmu_scythe1",
+		"layer0": "kubejs:item/lingmu_scythe1"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [107.25, -88.5, -12.5],
+			"translation": [0, 4, 12.75],
+			"scale": [2.94961, 1.76602, 0.85]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [28, -88.5, -12.5],
+			"translation": [0, 4, 12.75],
+			"scale": [2.94961, 1.76602, 0.85]
+		},
+		"firstperson_righthand": {
+			"rotation": [-98.16, 41.36, 134.48],
+			"translation": [1, 10.6, 3.55],
+			"scale": [1.44172, 2.00617, 2.57258]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-98.16, 41.36, 134.48],
+			"translation": [1, 10.6, 3.55],
+			"scale": [1.44172, 2.00617, 2.57258]
+		},
+		"ground": {
+			"scale": [4, 3.65039, 1]
+		},
+		"head": {
+			"rotation": [178.78, 1.77, 117.68],
+			"translation": [1, -4.65, 3.55],
+			"scale": [4, 4, 2.57258]
+		},
+		"fixed": {
+			"scale": [4, 3.65039, 1]
+		},
+		"on_shelf": {
+			"scale": [4, 3.65039, 1]
+		}
+	}
+}

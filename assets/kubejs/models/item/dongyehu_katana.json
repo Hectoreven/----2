@@ -1,0 +1,50 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "kubejs:item/dongyehu"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-20, -90, 0],
+			"translation": [0, 19.5, 0.5],
+			"scale": [0.98672, 3.67773, 0.51016]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-172.25, -87.75, 177.5],
+			"translation": [0, 19.5, 0.5],
+			"scale": [0.98672, 3.67773, 0.51016]
+		},
+		"firstperson_righthand": {
+			"rotation": [-100, -90, 0],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"rotation": [-20, -90, 0],
+			"translation": [0, 19.5, 0.5],
+			"scale": [0.98672, 3.67773, 0.51016]
+		},
+		"head": {
+			"rotation": [-90, -42.75, -70],
+			"translation": [0, -13.5, 7.75],
+			"scale": [0.98672, 3.67773, 0.51016]
+		},
+		"fixed": {
+			"rotation": [-98, -26.66, -87.37],
+			"translation": [-6, 7.5, -15.75],
+			"scale": [0.98672, 4, 0.51016]
+		},
+		"on_shelf": {
+			"rotation": [-20, -90, 0],
+			"translation": [0, 19.5, 0.5],
+			"scale": [0.98672, 3.67773, 0.51016]
+		}
+	}
+}
