@@ -8,7 +8,7 @@ let $ItemAttributeModifiers$Entry = Java.loadClass("net.minecraft.world.item.com
 
 
 StartupEvents.registry("item", event => {
-    event.create("dark_source_coral_blade", "sword")
+    event.create("dark_source", "sword")
         .attackDamageBaseline(8)
 
     event.create("example_sword", "sword")
