@@ -1,0 +1,7 @@
+{
+    "variants": {
+           "": {
+                "model": "kubejs:items/winter_staf"
+            }
+    }
+}
