@@ -18,7 +18,7 @@ StartupEvents.registry("item", event => {
         .speed(1.6)
 
 
-        
+
 })
 
 
@@ -56,30 +56,30 @@ StartupEvents.registry('item', event => {
         )
         .maxStackSize(1)
         .tag("curios:ring"),
-    //恶宴之杯
-    event.create('cup_of_demonic_feast')
-        .displayName("恶宴之杯")
-        .tooltip(Component.ofString("杀死一个目标后，随机获得1-5点HP").darkRed())
-        //HP增加3点
-        //护甲减少2点
-        .attachCuriosCapability(
-            CuriosJSCapabilityBuilder.create()
-                .modifyAttributesTooltip((tooltips, stack) => tooltips)
-                .addAttribute(
-                    "minecraft:generic.max_health",
-                    "kubejs:cup_of_demonic_feast_health",
-                    3,
-                    "add_value"
-                )
-                .addAttribute(
-                    "minecraft:generic.armor",
-                    "kubejs:cup_of_demonic_feast_armor",
-                    -5,
-                    "add_value"
-                )
-        )
-        .maxStackSize(1)
-        .tag("curios:ring")
+        //恶宴之杯
+        event.create('cup_of_demonic_feast')
+            .displayName("恶宴之杯")
+            .tooltip(Component.ofString("杀死一个目标后，随机获得1-5点HP").darkRed())
+            //HP增加3点
+            //护甲减少2点
+            .attachCuriosCapability(
+                CuriosJSCapabilityBuilder.create()
+                    .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                    .addAttribute(
+                        "minecraft:generic.max_health",
+                        "kubejs:cup_of_demonic_feast_health",
+                        3,
+                        "add_value"
+                    )
+                    .addAttribute(
+                        "minecraft:generic.armor",
+                        "kubejs:cup_of_demonic_feast_armor",
+                        -5,
+                        "add_value"
+                    )
+            )
+            .maxStackSize(1)
+            .tag("curios:ring")
     //鬼魂头饰，移动速度+8%
     event.create('ghostly_headdress')
         .displayName("鬼魂头饰")
@@ -102,7 +102,7 @@ StartupEvents.registry('item', event => {
         .tooltip(Component.ofString("佩戴时，攻击力提升5%和冷却缩减提升5%").gray())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
-                .modifyAttributesTooltip((tooltips, stack) => tooltips) 
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
                 .addAttribute(
                     "minecraft:generic.attack_damage",
                     "kubejs:ghostly_necklace_attack_damage",
@@ -115,8 +115,8 @@ StartupEvents.registry('item', event => {
                     "kubejs:ghostly_necklace_cooldown_reduction",
                     0.05,
                     "add_multiplied_total"
-                )   
-            )
+                )
+        )
         .maxStackSize(1)
         .tag("curios:necklace")
     //鬼魂耳环，攻击力+8%，闪避率apothic_attributes:dodge_chance+8%
@@ -138,7 +138,7 @@ StartupEvents.registry('item', event => {
                     "kubejs:ghostly_earrings_dodge_chance",
                     0.08,
                     "add_multiplied_total"
-                )   
+                )
         )
         .maxStackSize(1)
         .tag("curios:ring")
@@ -155,13 +155,16 @@ StartupEvents.registry('item', event => {
                     0.1,
                     "add_multiplied_total"
                 )
+                .onUnequip(context => {
+                    context.entity().getAttribute("minecraft:generic.attack_damage").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:ghostly_belt", 0, "add_multiplied_base"))
+                })
         )
         .maxStackSize(1)
         .tag("curios:belt")
     //灵木的灯笼，攻击速度+10%，移动速度+10%
     event.create('spirit_wood_lantern')
         .displayName("灵木的灯笼")
-        .tooltip(Component.ofString("佩戴时，攻击速度提升10%和移动速度提升10%").gray()) 
+        .tooltip(Component.ofString("佩戴时，攻击速度提升10%和移动速度提升10%").gray())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
@@ -173,11 +176,11 @@ StartupEvents.registry('item', event => {
                 )
                 .addAttribute(
                     "minecraft:generic.movement_speed",
-                    "kubejs:spirit_wood_lantern_movement_speed",    
+                    "kubejs:spirit_wood_lantern_movement_speed",
                     0.1,
                     "add_multiplied_total"
-                )   
+                )
         )
         .maxStackSize(1)
         .tag("curios:hands")
-    })
+})

@@ -1,11 +1,11 @@
 // 饰品效果：eou:cup_of_demonic_banquet后，击杀目标时，为自己回复1+0.1LV%的HP
 // 需要配合curios和eou:cup_of_demonic_banquet标签使用
-
-
+const curiosHelper = Java.loadClass("top.theillusivec4.curios.api.CuriosApi").getCuriosHelper()
+ 
 //entity是否装备了饰品id为curioId的饰品
 //return boolean
 function isEquippedCurio(entity, curioId) {
-    return CuriosApi.curiosHelper.findFirstCurio(entity, curioId).isPresent()
+    return curiosHelper.findFirstCurio(entity, curioId).isPresent()
 }
 
 EntityEvents.death(event => {
@@ -13,9 +13,11 @@ EntityEvents.death(event => {
     let entity = event.source.actual
     if (entity instanceof Player) {
         let player = entity
-        if (isEquippedCurio(player, "kubejs:cup_of_demonic_feast")) {
+        console.log("1");
+        
+        if (isEquippedCurio(player, "kubejs:test")) {
 
-            let curio = curiosHelper.findFirstCurio(player, "kubejs:cup_of_demonic_feast")
+            let curio = curiosHelper.findFirstCurio(player, "kubejs:test")
             if (curio.isPresent()) {
                 let itemStack = curio.get()
                     let randommath = Math.floor(Math.random() + 4)//
