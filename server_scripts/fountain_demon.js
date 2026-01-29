@@ -37,7 +37,7 @@ function getNbt(itemStack) {
 
 /**
  * @param {import("net.minecraft.world.item.ItemStack").$ItemStack} itemStack
- * @param {import("net.minecraft.nbt.CompoundTag")} nbt
+ * @param {import("net.minecraft.nbt.CompoundTag").$CompoundTag} nbt
 */
 function setNbt(itemStack, nbt) {
     itemStack.getOrDefault("minecraft:custom_data", $CustomData.of(nbt))
