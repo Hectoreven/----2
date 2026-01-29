@@ -1,5 +1,7 @@
 StartupEvents.registry("item", event => {
     event.create("dongyehu_katana", "sword")
+    //显示名称：东野虎刀
+    .displayName("洞爷湖")
     .attackDamageBaseline(0)
     .attackDamageBonus(16)
 

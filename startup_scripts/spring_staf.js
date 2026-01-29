@@ -1,5 +1,7 @@
 StartupEvents.registry("item", event => {
     event.create("spring_staf", "staff")
+    //显示名称：春之杖
+    .displayName("春之杖")
     .setEnchantmentValue(30)  // 附魔能力值30
     .setTier(tier => {
         tier.useBaseTier("ARTIFICER", true)  // 使用工匠模板

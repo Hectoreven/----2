@@ -14,5 +14,7 @@ StartupEvents.registry("item", event => {
 NativeEvents.onEvent("highest", $ItemAttributeModifierEvent, event => {
     if (event.getItemStack().getId() == "kubejs:ansha_blade") {
         event.addModifier("generic.max_health", new $AttributeModifier("kubejs:ansha_blade", -0.9, "add_multiplied_total"), "hand")
+        //暴击几率100%
+        event.addModifier("apothic_attributes:crit_chance", new $AttributeModifier("kubejs:ansha_blade_crit", 1.0, "add_multiplied_total"), "hand")
     }
 })

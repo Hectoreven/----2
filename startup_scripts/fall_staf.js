@@ -1,5 +1,7 @@
 StartupEvents.registry("item", event => {
     event.create("fall_staf", "staff")
+    //显示名称：秋之杖
+    .displayName("秋之杖")
     .setEnchantmentValue(90)  // 附魔能力值30
     .setTier(tier => {
         tier.useBaseTier("ARTIFICER", true)  // 使用工匠模板

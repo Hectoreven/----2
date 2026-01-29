@@ -1,5 +1,7 @@
 StartupEvents.registry("item", event => {
     event.create("holy_magic_sword", "magic_sword")
+    //显示名称：神圣魔剑
+    .displayName("神圣魔剑")
     //添加法术
     .addSpell("kubejs:hectorevens_spell", 1) 
     //1级专属治疗法术

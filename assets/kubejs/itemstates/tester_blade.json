@@ -1,0 +1,7 @@
+{
+    "variants": {
+           "": {
+                "model": "kubejs:items/tester_blade"
+            }
+    }
+}

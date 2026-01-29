@@ -1,5 +1,7 @@
 StartupEvents.registry("item", event => {
     event.create("summer_staf", "staff")
+    //显示名称：夏之杖
+    .displayName("夏之杖")
     .setEnchantmentValue(90)  // 附魔能力值30
     .setTier(tier => {
         tier.useBaseTier("ARTIFICER", true)  // 使用工匠模板

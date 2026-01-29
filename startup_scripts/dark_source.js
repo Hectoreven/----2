@@ -8,7 +8,9 @@ let $ItemAttributeModifiers$Entry = Java.loadClass("net.minecraft.world.item.com
 
 
 StartupEvents.registry("item", event => {
-    event.create("dark_source", "sword")
+    event.create("dark_mattersword", "sword")
+    //显示名称：暗影物质剑
+    .displayName("暗影物质剑")
         .attackDamageBaseline(8)
 
     event.create("example_sword", "sword")
@@ -183,4 +185,20 @@ StartupEvents.registry('item', event => {
         )
         .maxStackSize(1)
         .tag("curios:hands")
+    //暴食者之脑，提供1点HP,头饰
+    event.create('glutton_brain')
+        .displayName("暴食者之脑")
+        .tooltip(Component.ofString("佩戴时，提供1点HP，每1点HP为你提供0.1法术强度").gray())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "minecraft:generic.max_health",
+                    "kubejs:glutton_brain_max_health",
+                    1,
+                    "add_value"
+                )
+            )
+        .maxStackSize(1)
+        .tag("curios:head") 
 })
