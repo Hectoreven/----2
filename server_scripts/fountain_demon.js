@@ -73,7 +73,7 @@ EntityEvents.afterHurt(event => {
         if (attacker.getMainHandItem().getItem().id == "minecraft:diamond_sword") {
             let lightningBolt = $EntityType.LIGHTNING_BOLT.create(entity.level)
             lightningBolt.setVisualOnly(true)
-            lightningBolt.setPos(entity.position())            
+            lightningBolt.setPos(entity.position())
             entity.level.addFreshEntity(lightningBolt)
 
             entity.level.getEntities().forEach(target => {
@@ -93,7 +93,7 @@ EntityEvents.afterHurt(event => {
  * @returns {import("net.minecraft.nbt.CompoundTag").$CompoundTag}
 */
 function getNbt(itemStack) {
-    itemStack.getOrDefault("minecraft:custom_data", $CustomData.EMPTY)
+    return itemStack.getOrDefault("minecraft:custom_data", $CustomData.EMPTY).copyTag()
 }
 
 /**
