@@ -13,7 +13,6 @@ EntityEvents.death(event => {
     let entity = event.source.actual
     if (entity instanceof Player) {
         let player = entity
-        console.log("1");
         
         if (isEquippedCurio(player, "kubejs:test")) {
 

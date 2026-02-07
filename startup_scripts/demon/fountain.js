@@ -29,7 +29,6 @@ StartupEvents.registry('item', event => {
                     context.entity().getAttribute("irons_spellbooks:mana_regen").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:fountain_demon", 0, "add_value"))
                 })
             )
-            getNbt(itemStack).setNbt("demon", 1)
         .maxStackSize(1)
         .tag("curios:head")
     //恶魔契约之戒,神圣法术抗性减少175%
