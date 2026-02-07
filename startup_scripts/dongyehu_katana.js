@@ -9,6 +9,8 @@ StartupEvents.registry("item", event => {
 NativeEvents.onEvent("highest", $ItemAttributeModifierEvent, event => {
     if (event.getItemStack().getId() == "kubejs:dongyehu_katana") {
         event.addModifier("generic.max_health", new $AttributeModifier("kubejs:dongyehu_katana", -0.1, "add_multiplied_total"), "hand")
+        //暴击伤害+10
+        event.addModifier("apothic_attributes:crit_damage", new $AttributeModifier("kubejs:dongyehu_katana", 0.1, "add_value"), "hand")
     }
 })
 })

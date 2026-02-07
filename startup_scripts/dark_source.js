@@ -198,7 +198,48 @@ StartupEvents.registry('item', event => {
                     1,
                     "add_value"
                 )
+                 .onUnequip(context => {
+                    context.entity().getAttribute("irons_spellbooks:spell_power").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:glutton_brain", 0, "add_value"))
+                })
             )
         .maxStackSize(1)
         .tag("curios:head") 
+    //盛宴餐具，获得apothic_attributes:healing_received+25%
+    event.create('feast_utensils')
+        .displayName("盛宴餐具")
+        .tooltip(Component.ofString("佩戴时，获得25%治疗效果提升").gray())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "apothic_attributes:healing_received",
+                    "kubejs:feast_utensils_healing_received",
+                    0.25,
+                    "add_value"
+                )
+        )
+        .maxStackSize(1)
+        .tag("curios:hands")
+    //盲眼，头饰， apothic_attributes:dodge_chance+35%,护甲减少1点
+    event.create('blind_eye')
+        .displayName("盲眼")
+        .tooltip(Component.ofString("佩戴时，闪避率提升35%，但护甲减少2点").gray())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "apothic_attributes:dodge_chance",
+                    "kubejs:blind_eye_dodge_chance",
+                    0.35,
+                    "add_value"
+                )
+                .addAttribute(
+                    "minecraft:generic.armor",
+                    "kubejs:blind_eye_armor",
+                    -2,
+                    "add_value"
+                )
+        )
+        .maxStackSize(1)
+        .tag("curios:head")
 })

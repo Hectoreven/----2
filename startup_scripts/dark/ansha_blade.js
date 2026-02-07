@@ -17,4 +17,5 @@ NativeEvents.onEvent("highest", $ItemAttributeModifierEvent, event => {
         //暴击几率100%
         event.addModifier("apothic_attributes:crit_chance", new $AttributeModifier("kubejs:ansha_blade_crit", 1.0, "add_multiplied_total"), "hand")
     }
+
 })
