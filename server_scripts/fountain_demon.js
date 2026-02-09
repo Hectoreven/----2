@@ -102,10 +102,7 @@ PlayerEvents.tick(event => {
         }
 
 
-        // 1. 读取玩家的demon数值（核心：调用之前存储的demon值）
-        // 先判断是否存在demon值，避免空值问题，不存在则默认0
-            let demonValue = player.persistentData.contains("demon") 
-                ? player.persistentData.getFloat("demon") : 0;
+            let demonValue = player.persistentData.getFloat("CurioDemon") + player.persistentData.getFloat("ArmorDemon");
             // 2. 示例1：将demon值融入法力回复加成计算（你可根据需求调整公式）
             // 原有公式：2.5 * nbt → 新增demon值的加成（比如每1点demon额外加0.1）
             let manaRegenBonus = 0.5 + (demonValue * 0.1);
@@ -180,7 +177,7 @@ NativeEvents.onEvent($CurioChangeEvent, event => {
                 }
             }
         });
-        event.entity.persistentData.putFloat("demon", demon)
+        event.entity.persistentData.putFloat("CurioDemon", demon)
     }
 })
 
@@ -194,7 +191,7 @@ NativeEvents.onEvent($LivingEquipmentChangeEvent, event => {
             }
         })
 
-        event.entity.persistentData.putFloat("demon", demon)
+        event.entity.persistentData.putFloat("ArmorDemon", demon)
     }
 })
 
