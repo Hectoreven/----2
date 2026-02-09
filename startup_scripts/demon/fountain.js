@@ -3,7 +3,7 @@
 StartupEvents.registry('item', event => {
     event.create('fountain_demon')
         .displayName("源泉恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,戴者受到的治疗效果减少25%,提高5*【恶魔之力】法力每秒回复0.5*【恶魔之力】法力值").red())
+        .tooltip(Component.ofString("佩戴时提供1点HP和恶魔之力,戴者受到的治疗效果减少10%,提高5*【恶魔之力】法力每秒回复0.5*【恶魔之力】法力值").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
@@ -14,15 +14,9 @@ StartupEvents.registry('item', event => {
                     "add_value"
                 )
                 .addAttribute(
-                    "irons_spellbooks:holy_magic_resist",
-                    "kubejs:fountain_demon_holy_magic_resist",
-                    -0.25,
-                    "add_value"
-                )
-                .addAttribute(
                     "apothic_attributes:healing_received",
                     "kubejs:fountain_demon_healing_received",
-                    -0.15,
+                    -0.10,
                     "add_value"
                 )
                 .onUnequip(context => {
@@ -30,18 +24,18 @@ StartupEvents.registry('item', event => {
                 })
             )
         .maxStackSize(1)
-        .tag("curios:head")
+        .tag("curios:head"),
     //恶魔契约之戒,神圣法术抗性减少175%
     event.create('demonic_contract_ring')
         .displayName("恶魔契约之戒")
-        .tooltip(Component.ofString("佩戴时，神圣法术抗性减少175%").red())
+        .tooltip(Component.ofString("佩戴时，治疗效果减少70%，获得7点恶魔之力").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
                 .addAttribute(
-                    "irons_spellbooks:holy_magic_resist",
-                    "kubejs:demonic_contract_ring_holy_magic_resist",
-                    -1.75,
+                    "apothic_attributes:healing_received",
+                    "kubejs:demonic_contract_ring_healing_received",
+                    -0.70,
                     "add_value"
                 )
                 //生命值增加7点
@@ -51,45 +45,155 @@ StartupEvents.registry('item', event => {
                     7,
                     "add_value"
                 )
-                .addAttribute(
-                    "apothic_attributes:healing_received",
-                    "kubejs:demonic_contract_ring_healing_received",
-                    -0.15,
-                    "add_value"
-                )
             
         )
         .maxStackSize(1)
-        .tag("curios:ring")
-        //血契恶魔，手饰，HP+1，神圣法术抗性减少25%,每25%点
-    event.create('blood_pact_demon')
-        .displayName("血契恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,神圣法术抗性减少25%").red())
+        .tag("curios:ring"),
+        //毁灭恶魔,背饰，HP+1，治疗效果减少25%，获得1点恶魔之力，每1点恶魔之力提高2攻击力
+    event.create('destruction_demon')
+        .displayName("毁灭恶魔")
+        .tooltip(Component.ofString("佩戴时提供1点HP,治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2攻击力").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
                 .addAttribute(
                     "minecraft:generic.max_health",
-                    "kubejs:blood_pact_demon_max_health",
+                    "kubejs:destruction_demon_max_health",
                     1,
                     "add_value"
                 )
                 .addAttribute(
-                    "irons_spellbooks:holy_magic_resist",
-                    "kubejs:blood_pact_demon_holy_magic_resist",
-                    -0.25,
+                    "apothic_attributes:healing_received",
+                    "kubejs:destruction_demon_healing_received",
+                    -0.10,
+                    "add_value"
+                )
+                .onUnequip(context => {
+                    context.entity().getAttribute("minecraft:generic.attack_damage").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:destruction_demon", 0, "add_value"))
+                })
+        )
+        .maxStackSize(1)
+        .tag("curios:back"),
+        //血契恶魔，手饰，HP+1，神圣法术抗性减少25%,每25%点
+    event.create('blood_pact_demon')
+        .displayName("血契恶魔")
+        .tooltip(Component.ofString("受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2HP").red())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "apothic_attributes:healing_received",
+                    "kubejs:torrent_demon_healing_received",
+                    -0.10,
+                    "add_value"
+                )
+                .onUnequip(context => {
+                    context.entity().getAttribute("minecraft:generic.max_health").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:torrent_demon", 0, "add_value"))
+                })
+        )
+            .maxStackSize(1)
+            .tag("curios:hands"),
+        //洪流恶魔，脚饰，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点法术强度
+    event.create('torrent_demon')
+        .displayName("洪流恶魔")
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点法术强度").red())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "minecraft:generic.max_health",
+                    "kubejs:torrent_demon_max_health",
+                    1,
                     "add_value"
                 )
                 .addAttribute(
                     "apothic_attributes:healing_received",
-                    "kubejs:blood_pact_demon_healing_received",
-                    -0.15,
+                    "kubejs:torrent_demon_healing_received",
+                    -0.10,
                     "add_value"
                 )
+                .onUnequip(context => {
+                    context.entity().getAttribute("irons_spellbooks:spell_power").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:torrent_demon", 0, "add_value"))
+                })
         )
         .maxStackSize(1)
-        .tag("curios:hand")
-        //毁灭恶魔,
+        .tag("curios:feet"),
+        //风灾恶魔，戒指，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点攻击速度
+    event.create('tempest_demon')
+        .displayName("风灾恶魔")
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点攻击速度").red())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "minecraft:generic.max_health",
+                    "kubejs:tempest_demon_max_health",
+                    1,
+                    "add_value"
+                )
+                .addAttribute(
+                    "apothic_attributes:healing_received",
+                    "kubejs:tempest_demon_healing_received",
+                    -0.10,
+                    "add_value"
+                )
+                .onUnequip(context => {
+                    context.entity().getAttribute("minecraft:generic.attack_speed").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:tempest_demon", 0, "add_value"))
+                })
+        )
+        .maxStackSize(1)
+        .tag("curios:ring"),
+        //统御恶魔，头饰，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点冷却缩减
+    event.create('dominion_demon')
+        .displayName("统御恶魔")
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点冷却缩减").red())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "minecraft:generic.max_health",
+                    "kubejs:dominion_demon_max_health",
+                    1,
+                    "add_value"
+                )
+                .addAttribute(
+                    "apothic_attributes:healing_received",
+                    "kubejs:dominion_demon_healing_received",
+                    -0.10,
+                    "add_value"
+                )
+                .onUnequip(context => {
+                    context.entity().getAttribute("irons_spellbooks:cooldown_reduction").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:dominion_demon", 0, "add_value"))
+                })
+        )
+        .maxStackSize(1)
+        .tag("curios:head"),
+        //狂怒恶魔，护符，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点暴击几率
+    event.create('fury_demon')
+        .displayName("狂怒恶魔")
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点暴击几率").red())
+        .attachCuriosCapability(
+            CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "minecraft:generic.max_health",
+                    "kubejs:fury_demon_max_health",
+                    1,
+                    "add_value"
+                )
+                .addAttribute(
+                    "apothic_attributes:healing_received",
+                    "kubejs:fury_demon_healing_received",
+                    -0.10,
+                    "add_value"
+                )
+                .onUnequip(context => {
+                    context.entity().getAttribute("apothic_attributes:crit_chance").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:fury_demon", 0, "add_value"))
+                })
 
-    })
+        )
+        .maxStackSize(1)
+        .tag("curios:charm")
+
+})
     
