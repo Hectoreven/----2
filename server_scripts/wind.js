@@ -11,7 +11,7 @@ PlayerEvents.tick(event => {
             let spellpowerBonus = cooldownReduction * 1
             //应用这个新的拉弓强度加成数值,用modifier的方法
             player.getAttribute("apothic_attributes:arrow_damage").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:heart_of_gale", spellpowerBonus, "add_value"))
-            player.tell(`狂风之心提供了${spellpowerBonus}点箭矢伤害提升`)
+            //player.tell(`狂风之心提供了${spellpowerBonus}点箭矢伤害提升`)
         }
 
     }

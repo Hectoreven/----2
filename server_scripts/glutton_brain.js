@@ -20,7 +20,7 @@ PlayerEvents.tick(event => {
             let spellpowerBonus = cooldownReduction * 0.01;
             //应用这个新的法术强度加成数值,用modifier的方法
             player.getAttribute("irons_spellbooks:spell_power").addOrUpdateTransientModifier(new $AttributeModifier("kubejs:glutton_brain", spellpowerBonus, "add_multiplied_base"))
-            player.tell(`暴食者之脑提供了${spellpowerBonus}点法术强度提升`)
+            //player.tell(`暴食者之脑提供了${spellpowerBonus}点法术强度提升`)
         }
 
     }

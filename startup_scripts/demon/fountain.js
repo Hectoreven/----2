@@ -52,7 +52,7 @@ StartupEvents.registry('item', event => {
         //毁灭恶魔,背饰，HP+1，治疗效果减少25%，获得1点恶魔之力，每1点恶魔之力提高2攻击力
     event.create('destruction_demon')
         .displayName("毁灭恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2攻击力").red())
+        .tooltip(Component.ofString("佩戴时提供1点HP,治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高1攻击力").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
@@ -96,7 +96,7 @@ StartupEvents.registry('item', event => {
         //洪流恶魔，脚饰，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点法术强度
     event.create('torrent_demon')
         .displayName("洪流恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点法术强度").red())
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高10%法术强度").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
@@ -121,7 +121,7 @@ StartupEvents.registry('item', event => {
         //风灾恶魔，戒指，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点攻击速度
     event.create('tempest_demon')
         .displayName("风灾恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高2点攻击速度").red())
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高10%攻击速度").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
@@ -146,7 +146,7 @@ StartupEvents.registry('item', event => {
         //统御恶魔，头饰，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点冷却缩减
     event.create('dominion_demon')
         .displayName("统御恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点冷却缩减").red())
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高10%冷却缩减").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
@@ -168,10 +168,10 @@ StartupEvents.registry('item', event => {
         )
         .maxStackSize(1)
         .tag("curios:head"),
-        //狂怒恶魔，护符，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点暴击几率
+        //狂怒恶魔，护符，HP+1，治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5%点暴击几率
     event.create('fury_demon')
         .displayName("狂怒恶魔")
-        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5点暴击几率").red())
+        .tooltip(Component.ofString("佩戴时提供1点HP,受到的治疗效果减少10%，获得1点恶魔之力，每1点恶魔之力提高5%暴击几率").red())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)

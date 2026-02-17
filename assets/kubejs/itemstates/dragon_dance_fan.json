@@ -1,0 +1,7 @@
+{
+    "variants": {
+           "": {
+                "model": "kubejs:item/dragon_dance_fan"
+            }
+    }
+}

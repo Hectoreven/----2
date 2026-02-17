@@ -115,53 +115,60 @@ PlayerEvents.tick(event => {
             player.getAttribute("irons_spellbooks:mana_regen").addOrUpdateTransientModifier(
                 new $AttributeModifier("kubejs:fountain_demon", manaRegenBonus, "add_value")
             );
-            player.tell(`当前恶魔值：${demonValue}，法力回复加成：${manaRegenBonus}`);}
+            //player.tell(`当前恶魔值：${demonValue}，法力回复加成：${manaRegenBonus}`);
+            }
             
             //检测是否装备了毁灭恶魔
             if (destruction.isPresent()) {
             player.getAttribute("minecraft:generic.attack_damage").addOrUpdateTransientModifier(
                     new $AttributeModifier("kubejs:destruction_demon", attackBonus, "add_value")
                 );
-            player.tell(`当前恶魔值：${demonValue}，攻击力加成：${attackBonus}`);}
+            //player.tell(`当前恶魔值：${demonValue}，攻击力加成：${attackBonus}`);
+            }
 
             //检测是否装备了血契恶魔
             if (bloodpact.isPresent()) {
             player.getAttribute("minecraft:generic.max_health").addOrUpdateTransientModifier(
                     new $AttributeModifier("kubejs:blood_pact_demon", 2 * demonValue, "add_value")
                 );
-            player.tell(`当前恶魔值：${demonValue}，生命值加成：${2 * demonValue}`);
+            //player.tell(`当前恶魔值：${demonValue}，生命值加成：${2 * demonValue}`);
+            }
 
             //检测是否装备了洪流恶魔
             if (torrent.isPresent()) {
             player.getAttribute("irons_spellbooks:spell_power").addOrUpdateTransientModifier(
                     new $AttributeModifier("kubejs:torrent_demon", 0.1 * demonValue, "add_value")
                 );
-            player.tell(`当前恶魔值：${demonValue}，法术强度加成：${0.1 * demonValue}`);}
+            //player.tell(`当前恶魔值：${demonValue}，法术强度加成：${0.1 * demonValue}`);
+            }
 
             //检测是否装备了风灾恶魔
             if(tempest.isPresent()) {
             player.getAttribute("minecraft:generic.attack_speed").addOrUpdateTransientModifier(
                     new $AttributeModifier("kubejs:tempest_demon", 0.1 * demonValue, "add_value")
                 );
-            player.tell(`当前恶魔值：${demonValue}，攻击速度加成：${0.1 * demonValue * 100}%`);}
+            //player.tell(`当前恶魔值：${demonValue}，攻击速度加成：${0.1 * demonValue * 100}%`);
+            }
 
             //检测是否装备了统御恶魔
             if(dominion.isPresent()) {
             player.getAttribute("irons_spellbooks:cooldown_reduction").addOrUpdateTransientModifier(
                     new $AttributeModifier("kubejs:dominion_demon", 0.1 * demonValue, "add_value")
                 );
-            player.tell(`当前恶魔值：${demonValue}，冷却缩减加成：${0.1 * demonValue * 100}%`);}
+            //player.tell(`当前恶魔值：${demonValue}，冷却缩减加成：${0.1 * demonValue * 100}%`);
+            }
 
             //检测是否装备了狂怒恶魔
             if(fury.isPresent()) {
             player.getAttribute("apothic_attributes:crit_chance").addOrUpdateTransientModifier(
                     new $AttributeModifier("kubejs:fury_demon", 0.05 * demonValue, "add_value")
                 );
-            player.tell(`当前恶魔值：${demonValue}，暴击几率加成：${0.05 * demonValue * 100}%`);}
+            //player.tell(`当前恶魔值：${demonValue}，暴击几率加成：${0.05 * demonValue * 100}%`);
+            }
 
         }
     }
-})
+)
 
 
 
@@ -200,7 +207,7 @@ EntityEvents.afterHurt(event => {
         let attacker = event.getSource().getActual();
 
         let entity = event.getEntity()
-        if (attacker.getMainHandItem().getItem().id == "minecraft:diamond_sword") {
+        if (attacker.getMainHandItem().getItem().id == "kubejs:daleiban") {
             let lightningBolt = $EntityType.LIGHTNING_BOLT.create(entity.level)
             lightningBolt.setVisualOnly(true)
             lightningBolt.setPos(entity.position())

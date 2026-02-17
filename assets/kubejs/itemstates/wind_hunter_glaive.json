@@ -1,0 +1,7 @@
+{
+    "variants": {
+           "": {
+                "model": "kubejs:item/wind_hunter_glaive"
+            }
+    }
+}

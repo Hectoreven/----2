@@ -43,7 +43,7 @@ StartupEvents.registry("item", event => {
     // 狂风之心，项链，移动速度+8%，根据移动速度提升攻击力
     event.create('heart_of_gale')
         .displayName("狂风之心")
-        .tooltip(Component.ofString("移动速度+8%，根据移动速度提升箭矢伤害攻击力").blue())
+        .tooltip(Component.ofString("移动速度+8%，根据移动速度，每1%箭矢伤害1%").blue())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)

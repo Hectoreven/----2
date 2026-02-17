@@ -2,17 +2,23 @@ StartupEvents.registry("item", event => {
     //魔法拐杖糖
     event.create('magic_candy')
         .displayName("魔法拐杖糖")
-        .tooltip(Component.ofString("获得法术强度10%").gray())
+        .tooltip(Component.ofString("获得唤魔法术强度10%,召唤伤害8%").gray())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
                 .addAttribute(
-                    "minecraft:generic.attack_speed",
-                    "irons_spellbooks:spell_power",
+                    "irons_spellbooks:evocation_spell_power",
+                    "kubejs:magic_candy_spell_power",
                     0.1,
                     "add_value"
                 )
-            )
+                .addAttribute(
+                    "irons_spellbooks:summon_damage",
+                    "kubejs:magic_candy_summon_damage",
+                    0.08,
+                    "add_value"
+                )
+        )
         .maxStackSize(1)
         .tag("curios:belt")
         //carnival_ticket,法力恢复+10%
