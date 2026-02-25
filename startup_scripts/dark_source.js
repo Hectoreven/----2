@@ -188,7 +188,7 @@ StartupEvents.registry('item', event => {
     //暴食者之脑，提供1点HP,头饰
     event.create('glutton_brain')
         .displayName("暴食者之脑")
-        .tooltip(Component.ofString("佩戴时，提供1点HP，每1点HP为你提供0.1法术强度").gray())
+        .tooltip(Component.ofString("佩戴时，提供1点HP，每1点HP为你提供0.1%法术强度").gray())
         .attachCuriosCapability(
             CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
