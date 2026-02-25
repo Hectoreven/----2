@@ -1,3 +1,9 @@
+var $EnergyBoomerangItem = Java.loadClass("cn.leolezury.eternalstarlight.common.item.combat.EnergyBoomerangItem")
+
+/** @type {typeof import("net.minecraft.world.item.Item$Properties").$Item$Properties } */
+var $Item$Properties  = Java.loadClass("net.minecraft.world.item.Item$Properties")
+
+
 StartupEvents.registry("item", event => {
     event.create("dragon_dance_fan", "sword")
     .displayName("花之乱舞")
