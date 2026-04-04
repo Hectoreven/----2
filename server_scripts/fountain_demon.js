@@ -11,7 +11,7 @@ let $LivingEntity = Java.loadClass("net.minecraft.world.entity.LivingEntity")
 
 PlayerEvents.tick(event => {
     let player = event.player
-    if (isEquippedCurio(player, "kubejs:fountain_demon")) {
+
 
         // 源泉恶魔
         let curio = CuriosApi.curiosHelper.findFirstCurio(player, "kubejs:fountain_demon");
@@ -101,19 +101,13 @@ PlayerEvents.tick(event => {
             }
         }
 
-
             let demonValue = player.persistentData.getFloat("CurioDemon") + player.persistentData.getFloat("ArmorDemon");
-            // 2. 示例1：将demon值融入法力回复加成计算（你可根据需求调整公式）
-            // 原有公式：2.5 * nbt → 新增demon值的加成（比如每1点demon额外加0.1）
-            let manaRegenBonus = 0.5 + (demonValue * 0.1);
-            let attackBonus = demonValue * 2; // 每1点demon提高2点攻击力
 
-            //检测玩家是否装备了源泉恶魔
-            let fountain = CuriosApi.curiosHelper.findFirstCurio(player, "kubejs:fountain_demon");
-            if (fountain.isPresent()) {
+
+            if (curio.isPresent()) {
             // 应用这个新的攻击力加成数值,用modifier的方法
             player.getAttribute("irons_spellbooks:mana_regen").addOrUpdateTransientModifier(
-                new $AttributeModifier("kubejs:fountain_demon", manaRegenBonus, "add_value")
+                new $AttributeModifier("kubejs:fountain_demon", 0.5 + (demonValue * 0.1), "add_value")
             );
             //player.tell(`当前恶魔值：${demonValue}，法力回复加成：${manaRegenBonus}`);
             }
@@ -121,7 +115,7 @@ PlayerEvents.tick(event => {
             //检测是否装备了毁灭恶魔
             if (destruction.isPresent()) {
             player.getAttribute("minecraft:generic.attack_damage").addOrUpdateTransientModifier(
-                    new $AttributeModifier("kubejs:destruction_demon", attackBonus, "add_value")
+                    new $AttributeModifier("kubejs:destruction_demon", 2 * demonValue, "add_value")
                 );
             //player.tell(`当前恶魔值：${demonValue}，攻击力加成：${attackBonus}`);
             }
@@ -166,7 +160,7 @@ PlayerEvents.tick(event => {
             //player.tell(`当前恶魔值：${demonValue}，暴击几率加成：${0.05 * demonValue * 100}%`);
             }
 
-        }
+        
     }
 )
 

@@ -37,7 +37,22 @@ StartupEvents.registry("item", event => {
         )
         .maxStackSize(1)
         .tag("curios:hands")
-        
+    event.create('tnt_shooter')
+        .displayName("TNT发射器")
+        .tooltip(Component.ofString("增强药水喷射距离").gray())
+        .attachCuriosCapability(
+        CuriosJSCapabilityBuilder.create()
+                .modifyAttributesTooltip((tooltips, stack) => tooltips)
+                .addAttribute(
+                    "eternal_starlight:generic.thrown_potion_distance",
+                    "kubejs:tnt_shooter_thrown_potion_distance",
+                    1,
+                    "add_value"
+                )
+            )
+        .maxStackSize(1)
+        .tag("curios:head")
+   
 
     }
     )
