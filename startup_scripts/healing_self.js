@@ -11,9 +11,11 @@ StartupEvents.registry("item", event => {
             .setUses(666)  // 耐久度666
             .setDamage(4) // 攻击伤害4
             .setRepairIngredient(() => Ingredient.of("minecraft:gold_ingot")) // 用金锭修复
+})
 
     event.create("lingmu_scythe", "magic_sword",)
-    .addSpell("kubejs:lingmu_slow_spell", 1)
+    .addSpell("irons_spellbooks:gust", 2)
+    .displayName("灵木镰")
     .setTier(tier =>{
         tier.useBaseTier("HELLRAZOR", true)
             .setUses(666)
@@ -21,7 +23,10 @@ StartupEvents.registry("item", event => {
             .setRepairIngredient(() => Ingredient.of("minecraft:gold_ingot"))
 
 
-    }
-    )
-})
+    })
+    NativeEvents.onEvent("highest", $ItemAttributeModifierEvent, event => {
+    if (event.getItemStack().getId() == "kubejs:lingmu_scythe") {
+        //添加属性：apothic_attributes.cold_damage数值为8
+        event.addModifier("apothic_attributes:cold_damage", new $AttributeModifier("apothic_attributes.cold_damage", 8, "add_value"), "hand")
+    }})
 })

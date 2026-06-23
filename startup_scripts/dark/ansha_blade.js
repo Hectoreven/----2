@@ -3,13 +3,13 @@ let $ItemAttributeModifierEvent = Java.loadClass("net.neoforged.neoforge.event.I
 /** @type {typeof import("net.minecraft.world.entity.ai.attributes.AttributeModifier").$AttributeModifier } */
 let $AttributeModifier = Java.loadClass("net.minecraft.world.entity.ai.attributes.AttributeModifier")
 /** @type {typeof import("net.minecraft.world.item.component.ItemAttributeModifiers$Entry").$ItemAttributeModifiers$Entry } */
-let $ItemAttributeModifiers$Entry = Java.loadClass("net.minecraft.world.item.component.ItemAttributeModifiers$Entry")
 
 StartupEvents.registry("item", event => {
     event.create("ansha_blade", "sword")
         .attackDamageBaseline(1)
 })
 
+let $ItemAttributeModifiers$Entry = Java.loadClass("net.minecraft.world.item.component.ItemAttributeModifiers$Entry")
 
 NativeEvents.onEvent("highest", $ItemAttributeModifierEvent, event => {
     if (event.getItemStack().getId() == "kubejs:ansha_blade") {

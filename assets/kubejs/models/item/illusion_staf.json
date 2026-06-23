@@ -1,0 +1,57 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"1": "kubejs:item/zisexinqing",
+		"2": "kubejs:item/zisexinqing2",
+		"3": "kubejs:item/zisexinqing3",
+		"4": "kubejs:item/zisexinqing4",
+		"5": "kubejs:item/zisexinqing5",
+		"6": "kubejs:item/zisexinqing6",
+		"7": "kubejs:item/zisexinqing7",
+		"8": "kubejs:item/zisexinqing8",
+		"9": "kubejs:item/zisexinqing9",
+		"10": "kubejs:item/zisexinqing10",
+		"11": "kubejs:item/zisexinqing11",
+		"12": "kubejs:item/zisexinqing12",
+		"13": "kubejs:item/zisexinqing13",
+		"particle": "kubejs:item/image4",
+		"layer0": "kubejs:item/image4"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [44.5, 90, 0],
+			"translation": [0, 3.25, 2.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [0, 4, 0.5],
+			"scale": [0.85, 0.85, 0.85]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"scale": [4, 3.65039, 1]
+		},
+		"head": {
+			"rotation": [178.78, 1.77, 117.68],
+			"translation": [1, -4.65, 3.55],
+			"scale": [4, 4, 2.57258]
+		},
+		"fixed": {
+			"scale": [4, 3.65039, 1]
+		},
+		"on_shelf": {
+			"scale": [4, 3.65039, 1]
+		}
+	}
+}

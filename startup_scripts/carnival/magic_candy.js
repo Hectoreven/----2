@@ -39,7 +39,7 @@ StartupEvents.registry("item", event => {
         .tag("curios:hands")
     event.create('tnt_shooter')
         .displayName("TNT发射器")
-        .tooltip(Component.ofString("增强药水喷射距离").gray())
+        .tooltip(Component.ofString("增强药水喷射距离，同时，对周围14格范围内受到晶体感染效果影响的敌人造成额外伤害并刷新效果。").gray())
         .attachCuriosCapability(
         CuriosJSCapabilityBuilder.create()
                 .modifyAttributesTooltip((tooltips, stack) => tooltips)
